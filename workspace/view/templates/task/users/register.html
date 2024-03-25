@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REGISTER</title>
+</head>
+<body>
+<form action="{% url 'users-register' %}" name="user-register-form">
+    <input type="text" name="number1" placeholder="첫번쨰 숫자">
+    <input type="text" name="number2" placeholder="두번쨰 숫자">
+    <input type="text" name="number3" placeholder="세번쨰 숫자">
+    <button>완료</button>
+</form>
+</body>
+</html>

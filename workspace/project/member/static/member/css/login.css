@@ -1,0 +1,11 @@
+button {
+    background: none;
+    padding: 0;
+}
+
+div.oauth-wrap {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    justify-content: space-between;
+}

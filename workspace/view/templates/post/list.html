@@ -1,0 +1,39 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'post/css/table.css' %}">
+{% endblock %}
+
+{% block title %}LIST{% endblock %}
+
+{% block content %}
+<table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>조회수</th>
+        </tr>
+    </table>
+    <button id="more">더보기</button>
+{% endblock %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LIST</title>
+    <style>
+      
+
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    
+</script>
+</html>

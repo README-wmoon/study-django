@@ -1,0 +1,15 @@
+{% extends 'member/base.html' %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'member/css/mypage.css' %}">
+{% endblock %}
+
+{% block title %}마이페이지{% endblock %}
+{% block content %}
+    {% include 'member/header.html' %}
+{% endblock %}
+
+{% block js %}
+    
+{% endblock %}

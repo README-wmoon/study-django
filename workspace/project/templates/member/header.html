@@ -1,0 +1,23 @@
+{% load static %}
+<header>
+    <div id="header">
+        <div id="logo">
+            <img src="{% static 'public/images/logo.png' %}">
+        </div>
+        <div class="title">
+            <h2>마이페이지</h2>
+        </div>
+        <div id="category">
+            <div class="profile">
+                {% if request.session.profile %}
+                    <img src="/upload/{{ request.session.profile }}" width="30">
+                {% else %}
+                    <img src="{% static 'public/images/default-profile.png' %}" width="30">
+                {% endif %}
+            </div>
+            <div>
+                <a href="/accounts/logout">로그아웃</a>
+            </div>
+        </div>
+    </div>
+</header>

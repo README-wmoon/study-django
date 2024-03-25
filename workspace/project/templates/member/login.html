@@ -1,0 +1,94 @@
+{% extends 'member/base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'member/css/login.css' %}">
+{% endblock %}
+
+{% block title %}로그인{% endblock %}
+
+{% block content %}
+    <main id="login">
+        <section id="login-container">
+            <div id="logo">
+                <img src="{% static 'public/images/logo.png' %}">
+            </div>
+            <article>
+                <div class="login">
+                    <h2 id="title">
+                        즐거운 Django 로그인
+                    </h2>
+                    <h5>로그인을 하면? 🤭<br>즐거운 Django의 모든 서비스를 이용할 수 있습니다.</h5>
+                </div>
+                <form action="{% url 'member:login' %}" name="login" method="post">
+                    {% csrf_token %}
+                    <div class="login">
+                        <div class="info-container info-container-first">
+                            <span>
+                                <input type="text" id="id" name="member-id" autocomplete="off" placeholder="아이디">
+                                <img width="16px">
+                            </span>
+                            <p class="help"></p>
+                        </div>
+                        <div class="info-container">
+                            <span>
+                                <div class="password">
+                                    <input type="password" id="password" name="member-password" placeholder="비밀번호">
+                                    <img width="16px">
+                                    <p class="help"></p>
+                                </div>
+                            </span>
+                        </div>
+                        <button type="button" class="login">로그인</button>
+                        <button type="button" class="join" onclick="location.href = '/member/join'">회원가입</button>
+                    </div>
+                </form>
+                <div class="oauth-wrap">
+                    <form action="{% provider_login_url 'kakao' %}" method="post">
+                        {% csrf_token %}
+                        <button>
+                          <img src="{% static 'public/images/kakao-login.png' %}" alt="" width="275px">
+                        </button>
+                    </form>
+                    <form action="{% provider_login_url 'google' %}" method="post">
+                        {% csrf_token %}
+                        <button>
+                          <img src="{% static 'public/images/google-login.png' %}" alt="" width="40px">
+                        </button>
+                    </form>
+                    <form action="{% provider_login_url 'naver' %}" method="post">
+                        {% csrf_token %}
+                        <button>
+                          <img src="{% static 'public/images/naver-login.png' %}" alt="" width="40px">
+                        </button>
+                    </form>
+                </div>
+            </article>
+        </section>
+    </main>
+{% endblock %}
+
+{% block js %}
+    <script>const check = `{{ check }}`</script>
+    <script src="{% static 'member/js/login.js' %}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

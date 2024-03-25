@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>여행지</title>
+</head>
+<body>
+    <form action="{% url 'place-register' %}" method="post" name="place-register-form">
+        {% csrf_token %}
+        <label for="">여행 일수</label>
+        <input type="text" name="travel-day-count" placeholder="입력받은 여행일수">
+        <label for="">예산</label>
+        <input type="text" name="payment" placeholder="입력받은 예산">
+        
+        <label for="">관광지 리스트</label>
+        <input type="text" name="day" placeholder="입력받은 여행지">
+    <button>완료</button>
+</form>
+</body>
+</html>

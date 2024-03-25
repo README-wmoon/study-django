@@ -1,0 +1,23 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'post/css/table.css' %}">
+{% endblock %}
+
+{% block title %}LIST{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>조회수</th>
+        </tr>
+    </table>
+    <button id="more">더보기</button>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'post/js/list.js' %}"></script>
+{% endblock %}

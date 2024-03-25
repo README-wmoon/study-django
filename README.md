@@ -308,7 +308,7 @@ delete로 해서 모든 데이터를 날림
 
 ```
 
-## 수정
+## 수정(UPDATE)
 1. save()
     - 존재하는 객체의 조회한 뒤 전체 필드를 수정하고 혹시 없는 객체라면 추가한다.
     - 수정 목적으로 사용할 때에는 어떤 필드가 수정되었는 지를 정확히 알려주어야 한다.
@@ -317,13 +317,101 @@ delete로 해서 모든 데이터를 날림
 2. update() 
     - QuerySet객체로 사용할 수 있으며, 해당 객체들을 수정하고 수정된 행의 수를 리턴한다. -> filter.update -> 조건에 맞게 써줄때
 
+## 삭제(DELETE)
+```
+delete()
+	객체.delete()로 사용하며 조건에 맞는 모든 행을 삭제한다.
+	get(), filter(), all()과 같이 사용한다.
+
+with_transaction.atomic
+```
+
+## ★☆★☆★☆★☆REST 
+```
+Representational State Transfer = 모든 프로젝트에서 쓰인다 제일 중요함
+uri = member/mypage 보다는 member/1 회원의 번호를 쓰여서 그것을 대표한다.
+
+언제 어디서든 누구든 서버에 요청을 보낼 때
+URI만으로도 데이터 또는 행위(CRUD) 상태를 이해할 수 있도록 설계하는 규칙
+
+	1. 소문자로 작성한다.
+		대문자로 작성 시 문제가 발생할 수. 있기 때문에 소문자로 작성한다.
+	
+	2. 언더바 대신 하이픈을 사용한다.
+		가독성을 높이기 위해서 하이픈으로 구분하는 것이 좋다.
+	
+	3. URI 마지막에 슬래시를 작성하지 않는다.
+		마지막에 작성하는 슬래시는 의미가 없다.
+	
+	4. 계층 관계 표현 시 슬래시 구분자로 사용한다.
+		계층 관계(포함 관계)에서는 슬래시로 구분해준다.
+	
+	5. 파일 확장자는 포함시키지 않는다.
+		파일 확장자는 URI로 표현하지 않고 Header의 Content-Type을 사용하여
+		body의 내용을 처리하도록 설계한다.
+	
+	6. 데이터를 대표할 때에는 명사를 사용하고, 상태를 대표할 때에는 동사를 사용한다.
+		http://www.app.com/members/get/1 (x)
+		http://www.app.com/members/delete/1 (o)
+		무조건 한개여도 member 말고 members인 복수를 쓰쟈 
+		상태면 가능하다. -> 데이터를 의미하지않고 상태가 된 delete기 때문에 가능하다.
+	
+	7. URI에 사용되는 영어 단어는 복수로 작성한다.
+```
+- MSA (Micro Service Architecture) = 두개의 프로젝트인데 하나로 구현하는것
+- DRF(Django Rest Framework)
+
+### 화면
+1. 고용 static 어디에 메인 app에 만든다.
+2. 여러 개의 HTML을 하나의 HTML로 어떻게 합치는가?
+
+### ★☆★☆★☆★☆Django Command
+```
+가상환경으로 접속
+	source venv/bin/activate 맥
+
+현재 설치된 라이브러리를 파일로 정리
+	pip freeze > requirements.txt
+
+requeirements.txt에 작성된 라이브러리 설치
+	pip install -r requirements.txt
+
+새로운 폴더 만들기
+	python manage.py startapp [서비스이름]
+
+✲ 최초 1회에만 사용
+Model 객체 및 settings.py 설정 반영 파일 제작
+	python manage.py make migrations
+	
+✲ 최초 1회에만 사용
+makemigrations로 만든 migration 파일 실행
+	python manage.py migrate
+
+
+Model 객체 및 settings.py 설정 반영 파일 제작
+	python manage.py make migrations [서비스 이름]
+	
+
+makemigrations로 만든 migration 파일 실행
+	python manage.py migrate [서비스 이름]
+
+✲ 주의: 강사에게 보고 후 사용
+migration 파일 전체 삭제
+	python manage.py migrate --fake [서비스 이름] zero
+
+직접 migrations의 파일 삭제
+직접 DBMS 테이블 DROP
+
+서버 실행
+	python manage.py runserver [포트번호]
+
+관리자 로그인
+	python manage.py createsuperuser
+	패스워드 1234
+
+```
 
 
 
 
 
-
-
-
-
-      
